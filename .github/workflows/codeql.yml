@@ -28,7 +28,7 @@ jobs:
       actions: read
       contents: read
       security-events: write
-    container: maven:3-openjdk-17
+    #container: maven:3-openjdk-17
 
     strategy:
       fail-fast: false
