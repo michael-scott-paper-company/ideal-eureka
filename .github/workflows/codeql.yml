@@ -43,12 +43,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
     
-    - run: printenv PATH; exit 1
+    - run: wget https://github.com/github/codeql-action/releases/download/codeql-bundle-20230317/codeql-bundle-linux64.tar.gz
+      working-directory: ${{ runner.temp }}
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:
+        tools: ${{ runner.temp }}/codeql-bundle-linux64.tar.gz
         languages: ${{ matrix.language }}
         # If you wish to specify custom queries, you can do so here or in a config file.
         # By default, queries listed here will override any specified in a config file.
